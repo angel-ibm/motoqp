@@ -33,7 +33,7 @@ The app consists of four logical components:
 
 4. #### The UI 
 
-   My apologies for not documenting it thoroughly, but going into details would be out of the purpose 
+   My apologies for not documenting it thoroughly, but going into details would be out of the scope of MotoQP 
 
 ### Code
 
