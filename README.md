@@ -46,7 +46,6 @@ The code is structured as follows:
 Other important files are:
 
 - [`swagger.yaml`](swagger.yaml) the definition of the REST API. Simply append the route `/api/ui` to access the specification and try the API calls
-- [`client_test.sh`](client_test.sh) if you want a handy and quick way to test the REST API without browser, this shell script that uses `curl` may be useful for you
 - [`Dockerfile`](Dockerfile) if you want to create a [docker](https://www.docker.com) container with the app, this file contains the specification. There is no need to dockerize the app but it can be nice to deploy it in a [Kubernetes](https://kubernetes.io) cluster and run it from anywhere
 - [`requirements_server.txt`](requirements_server.txt) the three main python modules to be installed as pre-requisites : ***flask, connexion, qiskit***
 - [`docker-compose.yaml`](docker-compose.yaml) to use the utility [docker-compose](https://docs.docker.com/compose/). You know: `docker-compose build` to generate a docker container `docker-compose up` to start the docker container
