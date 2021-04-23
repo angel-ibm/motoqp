@@ -75,8 +75,7 @@ The [`test`](./test/) directory was used for development and testing. If you wan
 ```
 
 ### The User Interface
-
-As mentioned above, the UI details are not the goal of MotoQP. All the code is in the folder [motoqp_client](motoqp_client/) and I recorded a sample game [in YouTube](https://youtu.be/wpzrGbIc5DU) and you can download the video here for a better resolution[SHOWME.mov](SHOWME.mov). If you want to run the client in a separate machine or dockerize the client, it is not only possible, but very easy (see below)
+As mentioned above, the UI details are not the goal of MotoQP. All the code is in the folder [motoqp_client](motoqp_client/) and I recorded a sample game [in YouTube](https://youtu.be/5v0Xx7MV8OE) and you can download the video here for a better resolution [SHOWME.mov](SHOWME.mov). If you want to run the client in a separate machine or dockerize the client, it is not only possible, but very easy (see below)
 
 
 ## Setup
@@ -105,7 +104,7 @@ As mentioned above, the UI details are not the goal of MotoQP. All the code is i
 
 7. If you want to play with the UI, go to the [test](test/) directory and install the pre-requisites. Actually there is only one additional thing to install (the requests module) ` pip3 install -r requirements_client.txt `
 
-8. Now, start the client. Just type `./app_server.py`, launch a browser and enter the address as displayed in the terminal. Note the port (default 5555)
+8. Now, start the client. Just type `./app_client.py`, launch a browser and enter the address as displayed in the terminal. Note the port (default 5555)
 
 
 <center> <img src="client.png" width="50%"> </center>
