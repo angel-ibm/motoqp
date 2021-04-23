@@ -124,4 +124,5 @@ As mentioned above, the UI details are not the goal of MotoQP. All the code is i
 
 ## Test
 
-If you really can't wait and want to test it now, just go here [IBM test machine ](http://motoqp.ibm-co-created.com:30109/) but consider that it is a link to a Kubernetes cluster that may have been deleted when you try. So, no guarantee that it is running at the time you click on it. I  re-deploy it from time to time, just for fun. Even if it is running, the code is not designed with multi-session features. That means: if anyone else is messing up at the same time, it will run but the results will be odd. Anyway, enjoy the program and I am looking forward to hearing your comments.
+If you really can't wait and want to test it now, just go here [IBM test machine ](http://motoqp.ibm-co-created.com:30109/) but consider that it is a link to a Kubernetes cluster that may have been deleted when you try. So, no guarantee that it is running at the time you click on it. I  re-deploy it from time to time, just for fun. Even if it is running, the code is not designed with multi-session features. That means: if anyone else is messing up at the same time, it will run but the results will be odd. Anyway, enjoy the program and I am looking forward to hearing your comments. Thanks in advance!
+
