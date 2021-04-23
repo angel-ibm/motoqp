@@ -75,7 +75,7 @@ The [`test`](./test/) directory was used for development and testing. If you wan
 
 ### The User Interface
 
-As mentioned above, the UI details are not the goal of MotoQP. All the code is in the folder [motoqp_client](motoqp_client/) and I recorded a sample game here [SHOWME.mov](SHOWME.mov). If you want to run the client in a separate machine or dockerize the client, it is not only possible, but very easy (see below)
+As mentioned above, the UI details are not the goal of MotoQP. All the code is in the folder [motoqp_client](motoqp_client/) and I recorded a sample game [here](https://youtu.be/wpzrGbIc5DU) and you can download the video here for a better resolution[SHOWME.mov](SHOWME.mov). If you want to run the client in a separate machine or dockerize the client, it is not only possible, but very easy (see below)
 
 ## Setup
 
