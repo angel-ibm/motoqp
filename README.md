@@ -77,6 +77,7 @@ The [`test`](./test/) directory was used for development and testing. If you wan
 
 As mentioned above, the UI details are not the goal of MotoQP. All the code is in the folder [motoqp_client](motoqp_client/) and I recorded a sample game [here](https://youtu.be/wpzrGbIc5DU) and you can download the video here for a better resolution[SHOWME.mov](SHOWME.mov). If you want to run the client in a separate machine or dockerize the client, it is not only possible, but very easy (see below)
 
+
 ## Setup
 
 1. If you don't have python 3 on your system, install it as you whish. If you like [conda](https://pypi.org/project/conda/), that is OK. I used the standard python 3.9.2 for the development but I am guess that a few versions below will work too.
