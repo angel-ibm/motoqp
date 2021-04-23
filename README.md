@@ -5,7 +5,7 @@ The code is written in [python](https://www.python.org/), uses the embedded web 
 
 ## The game
 
-The [`README.pdf`](README.pdf) file contains the mechanics of the game. Read it to understand the rules.
+The [`README.pdf`](README.pdf) file contains the mechanics of the game. Read it to understand the rules. If you want to see what it looks like, watch this video [SHOWME.mov](SHOWME.mov)
 
 ## The quantum stuff
 
@@ -75,7 +75,7 @@ The [`test`](./test/) directory was used for development and testing. If you wan
 
 ### The User Interface
 
-As mentioned above, the UI details are not the goal of MotoQP. All the code is in the folder [motoqp_client](motoqp_client/). If you want to run the client in a separate machine or dockerize the client, it is not only possible, but very easy (see below)
+As mentioned above, the UI details are not the goal of MotoQP. All the code is in the folder [motoqp_client](motoqp_client/) and I recorded a sample game here [SHOWME.mov](SHOWME.mov). If you want to run the client in a separate machine or dockerize the client, it is not only possible, but very easy (see below)
 
 ## Setup
 
