@@ -5,7 +5,7 @@ The code is written in [python](https://www.python.org/), uses the embedded web 
 
 ## The game
 
-The [`README.pdf`](README.pdf) file contains the mechanics of the game. Read it to understand the rules. If you want to see what it looks like, watch this video [here](https://youtu.be/wpzrGbIc5DU) or simply download [SHOWME.mov](SHOWME.mov)
+The [`README.pdf`](README.pdf) file contains the mechanics of the game. Read it to understand the rules. If you want to see what it looks like, watch this video [here](https://youtu.be/5v0Xx7MV8OE) or simply download [SHOWME.mov](SHOWME.mov) for a better resolution.
 
 
 ## The quantum stuff
