@@ -1,0 +1,337 @@
+openapi: 3.0.0
+info:
+  description: This is the swagger file for motoqp
+  version: 1.0.0
+  title: REST API for MotoQP
+servers:
+  - url: /api
+paths:
+  /init:
+    post:
+      operationId: serverqp.init_post
+      tags:
+        - Championship
+      description: Create riders with their bikes, circuits and races
+      summary: Create riders with their bikes, circuits and races
+      responses:
+        "200":
+          description: Succesfully Initialized
+          content:
+            application/json:
+              schema:
+                properties:
+                  chname:
+                    type: string
+        "500" :
+          description: The Championship already exists
+    delete:
+      operationId: serverqp.init_delete
+      tags:
+        - Championship
+      description: Delete everything
+      summary: Delete everything
+      responses:
+        "200":
+          description: Succesfully deleted
+        "500":
+          description: No championship yet
+    get:
+      operationId: serverqp.init_get
+      tags:
+        - Championship
+      description: Retrieve the initial data
+      summary: Retrieve the initial data
+      responses:
+        "204":
+          description: Succesfully retrieved
+          content:
+            application/json:
+              schema:
+                properties:
+                  chname:
+                    type: string
+        "500":
+          description: No championship yet
+  /circuit:
+    get:
+      operationId: serverqp.circuit_getall
+      tags:
+        - Circuit
+      summary: Retrieve all circuits, optionally only the free ones
+      description: Retrieve all circuits
+      parameters:
+        - name: onlyfree
+          in: query
+          description: true if only the free circuits need to be retrieved, false if you don't care
+          required: false
+          schema:
+            type: boolean
+      responses:
+        "500":
+          description: No championship yet
+        "501":
+          description: No free circuit
+        "200" : 
+          description: Circuit data delivered
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    circuit_name:
+                      type: string
+                    circuit_type:
+                      type: string
+                    circuit_id:
+                      type: integer
+  /rider:
+    get:
+      operationId: serverqp.rider_getall
+      tags:
+        - Rider
+      description: Retrieve all riders
+      summary: retrieve all riders
+      responses:
+        "500":
+          description: No championship yet
+        "200" : 
+          description: Rider data delivered
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    rider_name:
+                      type: string
+                    rider_type:
+                      type: string
+                    rider_id:
+                      type: integer
+  /bike:
+    get:
+      operationId: serverqp.bike_getall
+      tags:
+        - Bike
+      description: Retrieve all bikes
+      summary: Retrieve all bikes, optionally only the free ones
+      parameters:
+        - name: onlyfree
+          in: query
+          description: true if only the free bikes need to be retrieved, false if you don't care
+          required: false
+          schema:
+            type: boolean
+      responses:
+        "500":
+          description: No championship yet
+        "501":
+          description: No free bike
+        "200" : 
+          description: Bike data delivered
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    rider_id:
+                     type: integer
+                    rider_name:
+                      type: string
+                    bike_id:
+                      type: integer
+                    bike_specs:
+                      type: object
+                      properties:
+                        spec: 
+                          type: string
+                          enum:
+                            - 'speed'
+                            - 'power'
+                            - 'braking'
+                            - 'aerodyn'
+                            - 'tyres'
+                        value: 
+                          type: integer
+  /bike/{bike_id}:
+    get:
+      operationId: serverqp.bike_getone
+      tags:
+        - Bike
+      summary: Retrieve one bike
+      description: Retrieve one bike
+      parameters:
+        - name: bike_id
+          in: path
+          description: Bike identifier
+          required: true
+          schema:
+            type: integer
+      responses:
+        "500":
+          description: No championship yet
+        "501":
+          description: Bike not found     
+        "200":
+          description: Bike data delivered
+          content:
+            application/json:
+              schema:
+                properties:
+                  rider_id:
+                    type: integer
+                  rider_name:
+                    type: string
+                  bike_id:
+                    type: integer
+                  bike_specs:
+                    type: object
+                    properties:
+                      spec:
+                        type: string
+                        enum:
+                          - speed
+                          - power
+                          - braking
+                          - aerodyn
+                          - tyres
+                      value:
+                        type: integer                     
+  /choice:
+    get:
+      operationId: serverqp.whatcanichoose
+      tags:
+        - Choice
+      description: Tell me what my choices are
+      summary: Can I choose the circuit or the type of race (normal / fool's) ?
+      responses:
+        "200":
+          description: My possible choice
+          content:
+            application/json:
+              schema:
+                properties:
+                  mychoice:
+                    type: string
+                    enum:
+                      - "racetype"
+                      - "circuit"
+    post:
+      operationId: serverqp.choice
+      tags:
+        - Choice
+      summary: Communicate the human choices to begin the race
+      description: Communicate the human choices, RUN the race and get the results
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bike_id:
+                  type: integer
+                  description: Bike identifier
+                circuit_id:
+                  type: integer
+                  description: Circuit identifier
+                race_type:
+                  type: string
+                  description: Normal Race or fool's race
+                  enum:
+                    - normal
+                    - fool  
+      responses:
+        "500" :
+          description: The Championship does not exist
+        "501" : 
+          description: Wrong Choice
+        "200":
+          description: Succesful Choice
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  circuit_name:
+                    type: string
+                    description: Name of the circuit
+                  circuit_type:
+                    type: string
+                    description: Type of circuit
+                    enum:
+                      - straight
+                      - uphills
+                      - downhills
+                      - windy
+                      - rainy
+                  critical_spec:
+                    type: string
+                    description: The bike specification that matters to win the race
+                    enum:
+                      - speed
+                      - power
+                      - braking
+                      - aerodyn
+                      - tyres
+                  human_bike:
+                    description: The specifications of the human's bike
+                    type: object
+                    properties:
+                      speed:
+                        type: integer
+                      power: 
+                        type: integer
+                      braking : 
+                        type: integer
+                      aerodyn:
+                        type: integer
+                      tyres: 
+                        type: integer
+                  quantum_bike:
+                    description: The quantum bike specs
+                    type: object
+                    properties:
+                      speed:
+                        type: integer
+                      power: 
+                        type: integer
+                      braking : 
+                        type: integer
+                      aerodyn:
+                        type: integer
+                      tyres: 
+                        type: integer
+                  race_type:
+                    description: The type of the race (normal / fool)
+                    type: string
+                    enum:
+                      - normal
+                      - fool
+                  race_prize_id:
+                    description: the id of the rider who got the prize (or -1 if none got the price)
+                    type: integer
+                  race_prize_name:
+                    description: the name of the rider who got the prize (or 'Both' if none)
+                    type: string
+                  human_points:
+                    description: the score of the human after the race
+                    type: integer
+                  quantum_points: 
+                    description: the score of the quantum after the race
+                    type: integer
+
+                    
+
+                  
+                  
+
+
+
+
+
+
+       
+

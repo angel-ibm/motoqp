@@ -1,0 +1,11 @@
+services: 
+  motoqpclient: 
+    environment:
+      # - MOTOQPAPI=http://motoqpserver:5000/api
+      # - MOTOQPAPI=http://localhost:5000/api 
+      - MOTOQPAPI=http://0.0.0.0:5000/api
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports: 
+      - '5555:5555'
